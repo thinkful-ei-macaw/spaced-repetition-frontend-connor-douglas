@@ -1,0 +1,36 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-page h2 {
+  font-size: 30px;
+  color: #00353f;
+}
+
+.login-page label {
+  font-size: 20px;
+  color: #00353f;
+}
+
+.login-page input {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: #00353f;
+  margin-bottom: 15px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form button {
+  margin-top: 10px;
+  font-size: x-large;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
