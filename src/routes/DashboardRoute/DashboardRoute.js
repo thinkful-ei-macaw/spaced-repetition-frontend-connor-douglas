@@ -35,9 +35,9 @@ class DashboardRoute extends Component {
     <p>Total correct answers: {language.total_score}</p>
         <a href='/learn'>Start practicing</a>
         <h3>Words to practice</h3>
-        {words.map(word => {
+        {words.map((word, idx) => {
           return (
-            <li>
+            <li key={idx}>
               <h4>{word.original}</h4>
               <p>{`correct answer count: ${word.correct_count}`}</p> <p>{`incorrect answer count: ${word.incorrect_count}`}</p>
             </li>
