@@ -1,0 +1,68 @@
+.registration-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-page p {
+  font-size: 25px;
+  text-align: center;
+  font-weight: 700;
+  color: #00353f;
+}
+
+.registration-page h2 {
+  font-size: 30px;
+  color: #00353f;
+}
+
+.registration-page label {
+  font-family: 'DM Mono', monospace;
+  font-size: small;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #00353f;
+}
+
+.registration-form input {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: #00353f;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a {
+  background-color: #fff;
+  color: #00353f;
+  padding: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: small;
+
+}
+
+.registration-button {
+  border-style: solid;
+  border-radius: 2px;
+  border-color: #00353f;
+  background-color: #00353f;
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+}
+
+.registration-button:hover {
+  border-style: solid;
+  border-radius: 2px;
+  border-color: #00353f;
+  background-color: #fff;
+  color: #00353f;
+  font-family: 'DM Mono', monospace;
+}

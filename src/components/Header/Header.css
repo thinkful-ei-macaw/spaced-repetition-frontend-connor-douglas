@@ -1,0 +1,41 @@
+h1 {
+  background-color: #00353f;
+  color: #fff;
+  margin: 0px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav {
+  background-color: #00353f;
+  padding: 0px 20% 12px; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav a {
+  background-color: #fff;
+  color: #00353f;
+  padding: 5px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  font-family: 'DM Mono', monospace;
+}
+
+nav a:hover {
+  background-color: #00353f;
+  color: #fff;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #fff;
+}
