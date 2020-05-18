@@ -39,3 +39,23 @@ nav a:hover {
   border-width: 2px;
   border-color: #fff;
 }
+
+.user-name-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-name-bar nav {
+  width: 100%;
+  padding-top: 12px;
+}
+
+
+.user-name-bar span {
+  padding: 10px;
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  color: #00353f;
+}
+
