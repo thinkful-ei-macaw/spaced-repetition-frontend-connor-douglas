@@ -13,7 +13,8 @@ class LearningRoute extends Component {
     answer: '',
     isCorrect: null,
     submitted: false,
-    guess: ''
+    guess: '',
+    previousWord: ''
   }
 
 componentDidMount() {
@@ -38,6 +39,7 @@ componentDidMount() {
     e.preventDefault();
     let reqBody = {"guess": e.target['learn-guess-input'].value}
     let token = TokenService.getAuthToken()
+    let previousWord = this.state.nextWord
     fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
@@ -53,11 +55,21 @@ componentDidMount() {
             answer: data.answer,
             isCorrect: data.isCorrect,
             submitted: true,
-            guess: reqBody.guess
+            guess: reqBody.guess,
+            nextWord: data.nextWord,
+            previousWord: previousWord,
+            wordCorrectCount: data.wordCorrectCount,
+            wordIncorrectCount: data.wordIncorrectCount
     })
-      console.log('i did a thing')
     })
 
+  }
+
+  onNextWordClick(e) {
+    e.preventDefault()
+    this.setState({
+      submitted:!this.state.submitted
+    })
   }
 
   render() {
@@ -68,8 +80,8 @@ componentDidMount() {
         {this.state.submitted && !this.state.isCorrect && <h2>Good try, but not quite right :(</h2>}
         {this.state.submitted && this.state.isCorrect && <h2>You were correct! :D</h2>}
         
-        <span>{this.state.nextWord}</span>
-        
+        {!this.state.submitted && <span>{this.state.nextWord}</span>}
+                
         {!this.state.submitted && <p>{`Your total score is: ${this.state.totalScore}`}</p>}
         {this.state.submitted && <section className='DisplayScore'><p>Your total score is: {this.state.totalScore}</p></section>}
   
@@ -83,21 +95,21 @@ componentDidMount() {
         {this.state.submitted && !this.state.isCorrect && 
         <section className='DisplayFeedback'>
           <p>
-            The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!
+            The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!
           </p>
-          <button>Try another word!</button>
+          <button onClick={e => this.onNextWordClick(e)}>Try another word!</button>
         </section>}
         {this.state.submitted && this.state.isCorrect &&
         <section className='DisplayFeedback'>
           <p>
-            The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!
+            The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!
           </p>
-          <button>Try another word!</button>
+          <button onClick={e => this.onNextWordClick(e)}>Try another word!</button>
         </section>
         }
- 
-        You have answered this word correctly {this.state.wordCorrectCount} times.
-        You have answered this word incorrectly {this.state.wordIncorrectCount} times.
+
+        {!this.state.submitted && <span>You have answered this word correctly {this.state.wordCorrectCount} times.
+        You have answered this word incorrectly {this.state.wordIncorrectCount} times.</span>}
       </section>
     );
   }
