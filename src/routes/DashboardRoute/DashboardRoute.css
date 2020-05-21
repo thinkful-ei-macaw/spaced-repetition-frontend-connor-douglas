@@ -32,7 +32,7 @@
   border-color: #430c05;
   background-color: #ffbf66;
   color: #430c05;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
   padding: 5px 10px
 }
 
@@ -41,11 +41,11 @@
   border-color: #430c05;
   background-color: #430c05;
   color: #ffbf66;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
 }
 
 .dashboard-page p {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
   font-size: small;
 }
 

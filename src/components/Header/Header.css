@@ -27,7 +27,7 @@ nav a {
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
 }
 
 nav a:hover {
@@ -55,7 +55,7 @@ nav a:hover {
 .user-name-bar span {
   padding: 10px;
   display: inline-block;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
   color: #00353f;
 }
 

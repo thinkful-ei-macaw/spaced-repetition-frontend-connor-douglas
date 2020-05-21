@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import config from '../../config'
 import TokenService from '../../services/token-service'
-
+import './LearningRoute.css';
 
 class LearningRoute extends Component {
   
@@ -75,41 +75,44 @@ componentDidMount() {
   render() {
     
     return (
-      <section>
-        {!this.state.submitted && <h2>Translate the word:</h2>}
+      <section className='learning-page'>
+        {!this.state.submitted && <h2 className='translate-word'>Translate the word:</h2>}
         {this.state.submitted && !this.state.isCorrect && <h2>Good try, but not quite right :(</h2>}
         {this.state.submitted && this.state.isCorrect && <h2>You were correct! :D</h2>}
         
-        {!this.state.submitted && <span>{this.state.nextWord}</span>}
+        {!this.state.submitted && <span className='word-to-translate'>{this.state.nextWord}</span>}
                 
-        {!this.state.submitted && <p>{`Your total score is: ${this.state.totalScore}`}</p>}
-        {this.state.submitted && <section className='DisplayScore'><p>Your total score is: {this.state.totalScore}</p></section>}
+        {!this.state.submitted && <p className='score-value'>{`Your total score is: ${this.state.totalScore}`}</p>}
+        {this.state.submitted && <section className='DisplayScore'><p className='score-value'>Your total score is: {this.state.totalScore}</p></section>}
   
 
 
-        {!this.state.submitted && <form onSubmit={e => this.answerSubmit(e)}>
-          <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
+        {!this.state.submitted && <form onSubmit={e => this.answerSubmit(e)} className='guess-form'>
+          <label htmlFor='learn-guess-input' className='guess-label'>What's the translation for this word?</label>
           <input id='learn-guess-input' type='text' required></input>
-          <button type='submit'>Submit your answer</button>
+          <button type='submit' className='submit-guess-button'>Submit your answer</button>
         </form>}
         {this.state.submitted && !this.state.isCorrect && 
         <section className='DisplayFeedback'>
           <p>
             The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!
           </p>
-          <button onClick={e => this.onNextWordClick(e)}>Try another word!</button>
+          <button type='button' className='try-another-button' onClick={e => this.onNextWordClick(e)}>Try another word!</button>
         </section>}
         {this.state.submitted && this.state.isCorrect &&
         <section className='DisplayFeedback'>
-          <p>
+          <p className='correct-translation'>
             The correct translation for {this.state.previousWord} was {this.state.answer} and you chose {this.state.guess}!
           </p>
-          <button onClick={e => this.onNextWordClick(e)}>Try another word!</button>
+          <button type='button' className='try-another-button' onClick={e => this.onNextWordClick(e)}>Try another word!</button>
         </section>
         }
 
-        {!this.state.submitted && <span>You have answered this word correctly {this.state.wordCorrectCount} times.
-        You have answered this word incorrectly {this.state.wordIncorrectCount} times.</span>}
+        {!this.state.submitted && 
+          <div className='correct-counts'>
+            <span className='count-span'>You have answered this word correctly {this.state.wordCorrectCount} times. </span>
+            <span className='count-span'>You have answered this word incorrectly {this.state.wordIncorrectCount} times.</span>
+          </div>}
       </section>
     );
   }

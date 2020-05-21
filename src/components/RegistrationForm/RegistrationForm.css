@@ -17,7 +17,7 @@
 }
 
 .registration-page label {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
   font-size: small;
 }
 
@@ -44,9 +44,8 @@ footer a {
   background-color: #fff;
   color: #00353f;
   padding: 5px;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
   font-size: small;
-
 }
 
 .registration-button {
@@ -55,7 +54,7 @@ footer a {
   border-color: #00353f;
   background-color: #00353f;
   color: #fff;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
 }
 
 .registration-button:hover {
@@ -64,5 +63,5 @@ footer a {
   border-color: #00353f;
   background-color: #fff;
   color: #00353f;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Baloo 2', cursive;
 }
