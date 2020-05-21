@@ -42,6 +42,8 @@ describe(`User story: Answer feedback`, function() {
       cy.login().visit(`/learn`)
       cy.wait('@languageHeadRequest')
 
+      
+
       cy.get('main form').within($form => {
         cy.get('input#learn-guess-input')
           .type(guess)

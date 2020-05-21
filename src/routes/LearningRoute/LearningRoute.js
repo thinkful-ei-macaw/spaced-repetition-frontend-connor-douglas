@@ -4,18 +4,16 @@ import TokenService from '../../services/token-service'
 
 
 class LearningRoute extends Component {
-  constructor() {
-    super() 
-    this.state = {
-      nextWord: '',
-      totalScore: 0,
-      wordCorrectCount: 0,
-      wordIncorrectCount: 0,
-      head: {},
-      submtted: false,
-      incorrect: false,
-      correct: true,
-    }
+  
+  state = {
+    nextWord: '',
+    totalScore: 0,
+    wordCorrectCount: 0,
+    wordIncorrectCount: 0,
+    answer: '',
+    isCorrect: null,
+    submitted: false,
+    guess: ''
   }
 
 componentDidMount() {
@@ -32,19 +30,14 @@ componentDidMount() {
         totalScore: data.totalScore,
         wordCorrectCount: data.wordCorrectCount,
         wordIncorrectCount: data.wordIncorrectCount,
-        head: data.head
       })
     })
-    
   }
   
   answerSubmit(e) {
     e.preventDefault();
-
     let reqBody = {"guess": e.target['learn-guess-input'].value}
-    console.log(reqBody)
     let token = TokenService.getAuthToken()
-    console.log(token)
     fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
@@ -56,8 +49,11 @@ componentDidMount() {
     .then(res => res.json())
     .then(data => {
           this.setState({
-      submitted: true,
-      incorrect: true,
+            totalScore: data.totalScore,
+            answer: data.answer,
+            isCorrect: data.isCorrect,
+            submitted: true,
+            guess: reqBody.guess
     })
       console.log('i did a thing')
     })
@@ -65,23 +61,41 @@ componentDidMount() {
   }
 
   render() {
-    console.log(this.state.head.translation)
+    
     return (
       <section>
         {!this.state.submitted && <h2>Translate the word:</h2>}
-        {this.state.submitted && this.state.incorrect && <h2>Good try, but not quite right :(</h2>}
+        {this.state.submitted && !this.state.isCorrect && <h2>Good try, but not quite right :(</h2>}
+        {this.state.submitted && this.state.isCorrect && <h2>You were correct! :D</h2>}
         
         <span>{this.state.nextWord}</span>
         
         {!this.state.submitted && <p>{`Your total score is: ${this.state.totalScore}`}</p>}
-        {this.state.submitted && <section className='DisplayScore'><p>{`Your total score is: ${this.state.totalScore}`}</p></section>}
-        
-        {!this.state.submitted &&<form onSubmit={e => this.answerSubmit(e)}>
+        {this.state.submitted && <section className='DisplayScore'><p>Your total score is: {this.state.totalScore}</p></section>}
+  
+
+
+        {!this.state.submitted && <form onSubmit={e => this.answerSubmit(e)}>
           <label htmlFor='learn-guess-input'>What's the translation for this word?</label>
           <input id='learn-guess-input' type='text' required></input>
           <button type='submit'>Submit your answer</button>
         </form>}
-        {this.state.submitted && this.state.incorrect && <section className='DisplayFeedback'><p>The correct translation for {this.state.nextWord} was {this.state.head.translation}</p></section>}
+        {this.state.submitted && !this.state.isCorrect && 
+        <section className='DisplayFeedback'>
+          <p>
+            The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!
+          </p>
+          <button>Try another word!</button>
+        </section>}
+        {this.state.submitted && this.state.isCorrect &&
+        <section className='DisplayFeedback'>
+          <p>
+            The correct translation for {this.state.nextWord} was {this.state.answer} and you chose {this.state.guess}!
+          </p>
+          <button>Try another word!</button>
+        </section>
+        }
+ 
         You have answered this word correctly {this.state.wordCorrectCount} times.
         You have answered this word incorrectly {this.state.wordIncorrectCount} times.
       </section>
