@@ -1,5 +1,11 @@
 # Spaced Repetition Capstone
 
+A spaced repetition application built by Connor McCormack and Douglas Miner
+
+
+
+
+
 ## Setup
 
 To setup the application
