@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  color: #00353f;
 }
 
 .word-to-translate {
@@ -27,9 +28,22 @@
   margin-bottom: 25px;
 }
 
+.guess-fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: none;
+  border-top-color: #430c05;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-top: 25px;
+}
+
 .guess-label {
-  font-family: 'Baloo 2', cursive;  font-size: small;
+  text-align: center;
+  font-family: 'Baloo 2', cursive;  
   margin-bottom: 10px;
+  color: #430c05;
 }
 
 #learn-guess-input {
@@ -45,13 +59,17 @@
 }
 
 .submit-guess-button {
+  margin: auto;
+  width: 65%;
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
   border-color: #430c05;
   background-color: #ffbf66;
   color: #430c05;
-  font-family: 'Baloo 2', cursive;  padding: 5px 10px;
+  font-family: 'Baloo 2', cursive;  
+  padding: 5px 10px;
+  font-size: 16px;
 }
 
 .try-another-button {
@@ -61,7 +79,9 @@
   border-color: #430c05;
   background-color: #ffbf66;
   color: #430c05;
-  font-family: 'Baloo 2', cursive;  padding: 5px 10px;
+  font-family: 'Baloo 2', cursive;  
+  font-size: 16px;
+  padding: 5px 10px;
   width: 50%;
 }
 
@@ -78,6 +98,7 @@
 .count-span {
   font-family: 'Baloo 2', cursive;  
   font-size: small;
+  color: #430c05;
 }
 
 .DisplayFeedback {
@@ -88,7 +109,7 @@
 
 .DisplayFeedback p {
   font-family: 'Baloo 2', cursive;  
-  font-size: small;
+  font-size: 15px;
   max-width: 80%;
   margin-bottom: 30px;
 }

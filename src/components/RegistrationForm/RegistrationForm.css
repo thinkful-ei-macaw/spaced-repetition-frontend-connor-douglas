@@ -50,7 +50,7 @@ footer a {
 
 .registration-button {
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
   border-color: #00353f;
   background-color: #00353f;
   color: #fff;
@@ -58,10 +58,15 @@ footer a {
 }
 
 .registration-button:hover {
+  cursor: pointer;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 5px;
   border-color: #00353f;
   background-color: #fff;
   color: #00353f;
   font-family: 'Baloo 2', cursive;
+}
+
+.registration-fieldset {
+  border-width: 0px;
 }

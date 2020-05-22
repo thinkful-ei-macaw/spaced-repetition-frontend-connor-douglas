@@ -87,11 +87,14 @@ componentDidMount() {
   
 
 
-        {!this.state.submitted && <form onSubmit={e => this.answerSubmit(e)} className='guess-form'>
-          <label htmlFor='learn-guess-input' className='guess-label'>What's the translation for this word?</label>
-          <input id='learn-guess-input' type='text' required></input>
-          <button type='submit' className='submit-guess-button'>Submit your answer</button>
-        </form>}
+        {!this.state.submitted && 
+          <form onSubmit={e => this.answerSubmit(e)} className='guess-form'>
+            <fieldset className='guess-fieldset'>
+              <label htmlFor='learn-guess-input' className='guess-label'>What's the translation for this word?</label>
+              <input id='learn-guess-input' type='text' required></input>
+              <button type='submit' className='submit-guess-button'>Submit your answer</button>
+            </fieldset>
+          </form>}
         {this.state.submitted && !this.state.isCorrect && 
         <section className='DisplayFeedback'>
           <p>

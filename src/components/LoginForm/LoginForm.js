@@ -47,34 +47,36 @@ class LoginForm extends Component {
         className='login-form'
         onSubmit={this.handleSubmit}
       >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='login-username-input'>
-            Username
-          </Label>
-          <Input className='field'
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input'>
-            Password
-          </Label>
-          <Input className='field'
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <Button type='submit' className='registration-button'>
-          Login
-        </Button>
+        <fieldset className="login-fieldset">
+          <div role='alert'>
+            {error && <p>{error}</p>}
+          </div>
+          <div>
+            <Label htmlFor='login-username-input'>
+              Username
+            </Label>
+            <Input className='field'
+              ref={this.firstInput}
+              id='login-username-input'
+              name='username'
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor='login-password-input'>
+              Password
+            </Label>
+            <Input className='field'
+              id='login-password-input'
+              name='password'
+              type='password'
+              required
+            />
+          </div>
+          <Button type='submit' className='registration-button'>
+            Login
+          </Button>
+        </fieldset>
       </form>
     )
   }
