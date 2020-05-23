@@ -19,7 +19,7 @@ class DashboardRoute extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data.words)
+
         this.setState({
           language: data.language,
           words: data.words,
